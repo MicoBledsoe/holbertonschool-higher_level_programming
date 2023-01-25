@@ -1,5 +1,4 @@
-
-        quare`` module
+The ``4-print_square`` module
 ============================
 
 Using ``print_square``
@@ -55,4 +54,4 @@ Missing argument
    >>> print_square()
    Traceback (most recent call last):
    	     ...
-   TypeError: print_square() missing 1 required positional argument: 'size'rint("#" * size)
+   TypeError: print_square() missing 1 required positional argument: 'size'
