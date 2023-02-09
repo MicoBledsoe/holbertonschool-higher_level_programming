@@ -1,5 +1,6 @@
 -- selects the number of records with same score in table
 
-SELECT score COUNT(*) as COUNT
+SELECT score, COUNT(*) as number
 FROM second_table
-GROUP BY score;
+GROUP BY score
+GROUP BY number DESC;
