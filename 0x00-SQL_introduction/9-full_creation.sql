@@ -1,5 +1,5 @@
 -- creating a 2nd table in database and also store data to tables
-CREATE TABLE IF NOT EXIST second_table(
+CREATE TABLE IF NOT EXISTS second_table(
 id INT,
 name VARCHAR(256),
 score INT
