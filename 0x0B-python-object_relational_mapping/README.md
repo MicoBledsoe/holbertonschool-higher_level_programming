@@ -2,7 +2,7 @@
 
 This project is designed to introduce you to Object-Relational Mapping (ORM) in Python, using the SQLAlchemy library. In this project, you will learn how to connect to a MySQL database from a Python script, and how to map Python classes to database tables using an ORM.
 
- ### Getting Started
+ ## Getting Started
 
 Before you begin, make sure you have the following prerequisites installed:
 
@@ -31,7 +31,7 @@ Run the command python3 setup_database.py to set up the database tables.
 Run the command python3 run.py to execute the main program.
 The run.py script will demonstrate how to use SQLAlchemy to perform basic CRUD operations on the database.
 
-Project Structure
+## Project Structure
 
 The project is structured as follows:
 
