@@ -1,4 +1,4 @@
-Object-Relational Mapping in Python
+## Object-Relational Mapping in Python
 
 This project is designed to introduce you to Object-Relational Mapping (ORM) in Python, using the SQLAlchemy library. In this project, you will learn how to connect to a MySQL database from a Python script, and how to map Python classes to database tables using an ORM.
 
