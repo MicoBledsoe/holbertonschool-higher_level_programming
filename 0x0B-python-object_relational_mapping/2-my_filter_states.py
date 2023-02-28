@@ -1,25 +1,34 @@
 #!/usr/bin/python3
-"""
-DISPLAY ALL VALUES IN 'states' TABLE OF DATABASE 'hbtn_0e_0_usa' WHOSE NAME
-MATCHES VALUE SUPPLIED AS ARGUMENT
-"""
-import sys
+'''Get All States, requires User, Password, Database'''
 import MySQLdb
+import sys
 
-if __name__ == "__main__":
 
-    if len(sys.argv) < 5:
-        sys.exit("INSUFFICENT NUMBER OF ARGUMENTS")
-
-    db = MySQLdb.connect(
-        user=sys.argv[1],
-        passwd=sys.argv[2],
-        db=sys.argv[3]
-    )
+def my_filter_states():
+    '''Get States from sql table'''
+    if(len(sys.argv) < 5):
+        return
+    mysql_username = sys.argv[1]
+    mysql_password = sys.argv[2]
+    database_name = sys.argv[3]
+    try:
+        db = MySQLdb.connect(
+            "localhost",
+            mysql_username,
+            mysql_password,
+            database_name)
+    except Exception as e:
+        return (0)
     cursor = db.cursor()
     cursor.execute(
-        "SELECT * FROM `states` WHERE BINARY `name` = '{}'".format(
-                sys.argv[4]
-                )
-        )
-    [print(state) for state in cursor.fetchall()]
+        "SELECT * FROM states \
+        WHERE name LIKE '{}' ORDER BY id ASC;".format(sys.argv[4]))
+    rows = cursor.fetchall()
+    for r in rows:
+        print(r)
+    cursor.close()
+    db.close()
+
+
+if __name__ == '__main__':
+    my_filter_states()
