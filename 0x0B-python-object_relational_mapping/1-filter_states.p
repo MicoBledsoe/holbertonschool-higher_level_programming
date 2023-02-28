@@ -1,19 +1,35 @@
 #!/usr/bin/python3
-"""1-filter_states.py"""
-
-
+'''Get All States, requires User, Password, Database'''
 import MySQLdb
-from sys import argv
+import sys
 
-if __name__ == "__main__":
-    db = MySQLdb.connect(user=argv[1], passwd=argv[2], db=argv[3])
-    cur = db.cursor()
-    cur.execute("SELECT * FROM states")
-    rows = cur.fetchall()
-    for row in rows:
-        for col in row:
-            if type(col) is not int:
-                if col.startswith("N"):
-                    print(row)
-    cur.close()
+
+def filter_states():
+    '''Get States from sql table'''
+    if(len(sys.argv) < 4):
+        print(sys.argv)
+        return
+    mysql_username = sys.argv[1]
+    mysql_password = sys.argv[2]
+    database_name = sys.argv[3]
+    try:
+        db = MySQLdb.connect(
+            "localhost",
+            mysql_username,
+            mysql_password,
+            database_name)
+    except Exception as e:
+        return (0)
+    cursor = db.cursor()
+    cursor.execute(
+        "SELECT * FROM states \
+        WHERE ASCII(left(name,1)) = ASCII('N') ORDER BY id ASC;")
+    rows = cursor.fetchall()
+    for r in rows:
+        print(r)
+    cursor.close()
     db.close()
+
+
+if __name__ == '__main__':
+    filter_states()
