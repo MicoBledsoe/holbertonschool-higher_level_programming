@@ -1,35 +1,21 @@
 #!/usr/bin/python3
-'''Get All States, requires User, Password, Database'''
-import MySQLdb
+"""
+Lists all states with a name starting with N
+"""
 import sys
-
-
-def filter_states():
-    '''Get States from sql table'''
-    if(len(sys.argv) < 4):
-        print(sys.argv)
-        return
-    mysql_username = sys.argv[1]
-    mysql_password = sys.argv[2]
-    database_name = sys.argv[3]
-    try:
-        db = MySQLdb.connect(
-            "localhost",
-            mysql_username,
-            mysql_password,
-            database_name)
-    except Exception as e:
-        return (0)
-    cursor = db.cursor()
-    cursor.execute(
-        "SELECT * FROM states \
-        WHERE ASCII(left(name,1)) = ASCII('N') ORDER BY id ASC;")
-    rows = cursor.fetchall()
-    for r in rows:
-        print(r)
-    cursor.close()
-    db.close()
-
+import MySQLdb
 
 if __name__ == '__main__':
-    filter_states()
+    db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2],
+                         db=sys.argv[3], port=3306)
+
+    cur = db.cursor()
+    cur.execute("SELECT * \
+    FROM states \
+    WHERE CONVERT(`name` USING Latin1) \
+    COLLATE Latin1_General_CS \
+    LIKE 'N%';")
+    states = cur.fetchall()
+
+    for state in states:
+        print(state)
