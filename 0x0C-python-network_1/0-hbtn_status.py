@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-""" Writing a Script that fetches the contents from https://intranet.hbtn.io/status """
+""" Writing a Script that fetches the 
+contents from https://intranet.hbtn.io/status """
 from urllib import request
 
 if __name__ == "__main__":
