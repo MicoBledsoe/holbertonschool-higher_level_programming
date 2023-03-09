@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-""" Writing a Script that fetches the 
-contents from https://intranet.hbtn.io/status """
+""" Writing a Script that fetches the contents from
+https://intranet.hbtn.io/status """
 from urllib import request
 
 if __name__ == "__main__":
     req = request.Request('https://intranet.hbtn.io/status')
     with request.urlopen(req) as page:
-     page = page.read()
+        page = page.read()
     print("Body response:")
     print("\t- type: {}".format(type(page)))
     print("\t- content: {}".format(page))
