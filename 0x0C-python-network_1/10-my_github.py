@@ -24,4 +24,3 @@ if __name__ == '__main__':
     else:
         """Display None if response wasn't successful"""
         print(None)
-
