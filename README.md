@@ -4,7 +4,7 @@ Welcome to the Higher Level Programming repository at Holberton School. This rep
 
 ## Directories and Their Contents
 
-#### 0x00-SQL_introduction
+### 0x00-SQL_introduction
 **Purpose:** Introduce basic SQL concepts, queries, and commands.
 
 #### 0x00-javascript-warm_up
