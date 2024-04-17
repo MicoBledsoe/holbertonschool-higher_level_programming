@@ -1,7 +1,7 @@
+# 0x00-SQL_introduction
+
 ## Overview
-
 MySQL is an open-source relational database management system (RDBMS) that is used to manage data in a relational database. It was developed by MySQL AB, which was later acquired by Sun Microsystems, and is now owned by Oracle Corporation.
-
 MySQL is widely used in web development and is particularly popular for building web applications and content management systems. It is also used by businesses and organizations for managing and analyzing data, including customer information, financial records, and inventory.
 
 ## Key Features
